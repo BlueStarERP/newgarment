@@ -1,4 +1,6 @@
 # newgarment
+BlueStarERP/newgarment
+
 Bootstrap DataTable and JQuery
 
 Ayeyarwady Region Government

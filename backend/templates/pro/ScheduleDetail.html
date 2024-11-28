@@ -1,0 +1,15 @@
+{% extends 'pro/base.html' %}
+
+{% block content %}
+
+<div class="row w-50 mx-5">
+    <div class="card p-3">
+<form action="#" method="get">{% csrf_token %}
+{{form}}
+<button type="submit" class="form-control btn btn-info">Update</button>
+</form>
+
+</div>
+</div>
+
+{% endblock content %}

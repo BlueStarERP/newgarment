@@ -1,0 +1,73 @@
+{% extends 'pro/base.html' %}
+
+{% block content %}
+
+
+<div class="pb-3">
+   
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-primary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Today Working Hour : 00 hr
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+    
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Line Name</th>
+        <th scope="col">Target</th>
+        <th scope="col">Attendance</th>
+        <th>Operator List</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in line %}
+      <tr>
+        <th scope="row">{{i.id}}</th>
+        <td>{{i.line_name}}</td>
+        <td>
+          <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{i.target}}</a>
+          <ul class="dropdown-menu">
+  <li class="p-2"><input type="number" name="" class="form-control" value="1"></li>
+  <li class="p-2 justify-content-center d-flex"><button type="button" class="btn btn-sm btn-info">update</button></li>
+</ul>
+</td>
+        <td>
+            <a href="#" class="btn btn-sm btn-success">Attendance</a>
+        </td>
+        <td>
+            <a href="#" class="btn btn-sm btn-secondary">view</a>
+        </td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+
+
+</div>
+
+
+{% endblock content %}
