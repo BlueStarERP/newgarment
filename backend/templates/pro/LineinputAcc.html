@@ -1,0 +1,109 @@
+{% extends 'pro/base.html' %}
+
+{% block content %}
+
+
+<form action="" method="post"> {% csrf_token %}
+<div class="row g-2 mt-2 pb-4">
+    <h5 class="fw-bold text-primary">New Request Accessories</h5>
+    <div class="col-md-3">
+      <div class="form-floating">
+        <select class="form-control single-select2" name="stylename">
+          <option selected>Open this select menu</option>
+          {% for i in style %}
+          <option value="{{i.id}}">{{i.StyleCode}}</option>
+          {% endfor %}
+          
+        </select>
+        
+      </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="">
+          <input type="text" class="form-control" name="item" placeholder="Item" required>
+        </div>
+      </div>
+ 
+
+
+  <div class="col-md-2">
+    <div class="">
+      <input type="number" class="form-control" name="qty" placeholder="Qty" required>
+      
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="form">
+        <input type="submit" class="form-control btn btn-md btn-info" value="Request">
+        
+      </div>
+  </div>
+
+
+</div>
+</form>
+<hr>
+
+<div class="row g-2">
+<!-- request list  -->
+<div class="col-md-3 card">
+    <table class="table">
+      <h6 class="fw-bold text-warning">Acc Issue Lists ...</h6>
+  <thead class="bg-info">
+    <tr>
+      
+      <th scope="col">Style</th>
+      <th scope="col">Qty</th>
+      <!-- <th scope="col">Status</th> -->
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in inputacc1 %}
+    <tr>
+      
+      <td>{{i.style_name}}</td>
+      <td>{{i.request_qty}}</td>
+      
+      <td>{{i.request_date}}</td>
+    </tr>
+    {% endfor %}
+   
+  </tbody>
+</table>
+</div>
+<!-- 1 month history -->
+
+<div class="col-md-9 card">
+  <table class="table table1">
+    <h6>Request Pending...</h6>
+  <thead class="bg-success">
+    <tr>
+      
+      <th scope="col">Style</th>
+      <th scope="col">Request Qty</th>
+      <th scope="col">Qty</th>
+      <!-- <th scope="col">Status</th> -->
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in inputacc2 %}
+    <tr>
+      <th scope="row">{{i.style_name}}</th>
+      <td>{{i.request_qty}}</td>
+      <td>{{i.input_qty}}</td>
+      <td>{{i.issue_date}}</td>
+      <!-- <td>@mdo</td> -->
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+</div>
+
+</div>
+
+{% endblock content %}

@@ -21,6 +21,7 @@
 <!-- Data Table  -->
  <link rel="stylesheet" href="{% static 'datatable/dataTables.bootstrap5.css' %}">
 <link rel="stylesheet" href="{% static 'datatable/buttons.dataTables.css' %}">
+<link rel="stylesheet" href="{% static 'select2/css/select2.min.css' %}">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -45,7 +46,7 @@
     
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Garment MR</a>
+    <a class="navbar-brand" href="#">Garment</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -71,7 +72,7 @@
             <ul class="dropdown-menu dropdown-menu-end">
               <li><a href="{% url 'production:ProductionLineList' %}" class="dropdown-item">Line Target</a></li>
               <li><a href="{% url 'mr:buyerview' %}" class="dropdown-item">Fabric Issue Request</a></li>
-              <li><a href="{% url 'mr:buyerview' %}" class="dropdown-item">Accessories Issue Request</a></li>
+              <li><a href="{% url 'production:LineinputAcc' %}" class="dropdown-item">Accessories Issue Request</a></li>
               
             </ul>
           </div>
@@ -95,7 +96,8 @@
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'jquery/jquery.js' %}"></script>
     <script src="{% static 'fullcalendar/dist/index.global.min.js' %}"></script>
-    <!-- <script src="{% static 'fullcalendar/main.min.js.js' %}"></script> -->
+    <script src="{% static 'select2/js/select2.min.js' %}"></script>
+    <script src="{% static 'select2/select.js' %}"></script>
 
 
     <script src="{% static 'datatable/dataTables.js' %}"></script>

@@ -3,6 +3,8 @@ from django.views.generic import TemplateView, View, CreateView, DetailView,Form
 from django.http import JsonResponse
 
 from .models import *
+from mr.models import *
+
 from .forms import *
 # Create your views here.
 
@@ -54,3 +56,22 @@ class ProductionLineList(View):
         line = LineName.objects.all()
         context = {'line':line, 'title':'ProductionLineList'}
         return render(request, "pro/ProductionLineList.html", context)
+
+class LineinputAcc(View):
+    def get(self, request):
+        style = Style.objects.all()
+        line = LineName.objects.get(adminuser=request.user)
+        usr = request.user
+        inputacc1 = LineInputAcc.objects.filter(approved=1, line=line)
+        inputacc2 = LineInputAcc.objects.filter(approved=2, line=line)
+        context = {'title':'Accessories Issues Request', 'style':style, 'inputacc1':inputacc1, 'inputacc2':inputacc2}
+        return render(request, "pro/LineinputAcc.html", context)
+    
+    def post(self, request):
+        line = LineName.objects.get(adminuser=request.user)
+        stylename = request.POST.get('stylename')
+        item = request.POST.get('item')
+        qty = request.POST.get('qty')
+        style_obj = Style.objects.get(id=stylename)
+        acc = LineInputAcc.objects.create(line= line, request_by= request.user,style_name= style_obj, item=item, request_qty=qty)
+        return redirect(request.META['HTTP_REFERER'])

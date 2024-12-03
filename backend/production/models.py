@@ -1,6 +1,6 @@
 from django.db import models
 from mr.models import *
-from django.contrib.auth.models import User
+from account.models import User
 # Create your models here.
 
 class LineName(models.Model):
@@ -9,9 +9,14 @@ class LineName(models.Model):
     redcolor = models.PositiveIntegerField(default=0)
     successcolor = models.PositiveIntegerField(default=0)
     active_status = models.BooleanField(default=True)
+    adminuser = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.line_name
+
+class LineUser(models.Model):
+    line_name = models.CharField(max_length=255)
+
 
 class LineSchedule(models.Model):
     line = models.ForeignKey(LineName, on_delete=models.CASCADE)
@@ -48,7 +53,7 @@ class LineHandover(models.Model):
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-class LineInput(models.Model):
+class LineInputAcc(models.Model):
     line = models.ForeignKey(LineName, on_delete=models.CASCADE)
     request_by = models.ForeignKey(User, on_delete=models.CASCADE)
     style_name = models.ForeignKey(Style, on_delete=models.CASCADE)
@@ -58,5 +63,6 @@ class LineInput(models.Model):
     request_date = models.DateTimeField(auto_now_add=True)
     approved = models.IntegerField(default=1)
 
+    issue_date = models.DateField(blank=True, null=True)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
