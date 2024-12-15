@@ -1,0 +1,106 @@
+{% extends 'pro/base.html' %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-4 col-sm-12 card border-success">
+    
+<div class="table-responsive">
+    
+  <table class="table table-striped table1">
+      <thead>
+        <tr>
+          
+          <th scope="col">Employee Name</th>
+          <th scope="col">Employee ID</th>
+          
+          
+         
+        </tr>
+      </thead>
+      <tbody>
+          {% for i in emp %}
+        <tr>
+          <th scope="row">
+            <a href="#"  data-bs-toggle="modal" data-bs-target="#empModal-{{i.id}}">{{i.employee_name}}</a>
+            <!-- Modal -->
+<div class="modal fade" id="empModal-{{i.id}}" tabindex="-1" aria-labelledby="empLabel-{{i.id}}" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="empLabel-{{i.id}}">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+          </th>
+          <td>{{i.employee_id}}</td>
+          
+          
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  
+  
+  </div>
+  </div>
+  <div class="col-md-8 col-sm-12 card border-warning">
+    
+<div class="table-responsive">
+    
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          
+          <th scope="col">srno</th>
+          <th scope="col">employee_profile</th>
+          <th scope="col">point</th>
+          <th scope="col">edit</th>
+          <th scope="col">#</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+          {% for i in opt %}
+        <tr>
+          <th scope="row">{{i.id}}</th>
+          <td>{{i.line_name}}</td>
+          <td>
+            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{i.target}}</a>
+            <ul class="dropdown-menu">
+    <li class="p-2"><input type="number" name="" class="form-control" value="{{i.target}}"></li>
+    <li class="p-2 justify-content-center d-flex"><button type="button" class="btn btn-sm btn-info">update</button></li>
+  </ul>
+  </td>
+          <td>
+              <a href="#" class="btn btn-sm btn-success">Assign</a>
+          </td>
+          <td>
+              <a href="{% url 'production:SewingOperatorGroup' i.id %}" class="btn btn-sm btn-secondary">SewingOptGruop</a>
+              <a href="{% url 'production:SewingOptCMP' i.id %}" class="btn btn-sm btn-info">dailyCMP</a>
+          </td>
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  
+  
+  </div>
+  </div>
+</div>
+
+
+
+
+{% endblock content %}

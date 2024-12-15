@@ -1,0 +1,29 @@
+{% extends 'pro/base.html' %}
+
+{% block content %}
+{% load static %}
+{% for i in line %}
+
+<a href="{% url 'production:SewingOptCMP' i.id %}" class="btn">
+    
+    <!-- <div class="card text-bg-dark">
+        <img src="{% static 'assets/btn/b1.png' %}" class="card-img" alt="...">
+        <div class="card-img-overlay">
+          <h4 class="card-title text-primary">{{i.line_name}}</h4>
+          
+        </div>
+      </div> -->
+      <div class="card border-primary">
+        <img src="{% static 'assets/btn/b1.png' %}" class="card-img-top" alt="...">
+        <div class="card-body text-primary">
+          <h4 class="card-title">{{i.line_name}}</h4>
+        </div>
+        
+      </div>
+
+
+</a>
+
+{% endfor %}
+
+{% endblock content %}

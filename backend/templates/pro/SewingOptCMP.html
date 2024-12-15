@@ -1,0 +1,57 @@
+{% extends 'pro/base.html' %}
+
+{% block content %}
+
+
+
+<table class="table table-bordered">
+    <thead class="table-info">
+      <tr>
+        <th scope="col">Line</th>
+        <th scope="col">Style</th>
+        <th scope="col">Item</th>
+        <th scope="col">Target</th>
+        <th scope="col">H1</th>
+        <th scope="col">H2</th>
+        <th scope="col">H3</th>
+        <th scope="col">H4</th>
+        <th scope="col">H5</th>
+        <th scope="col">H6</th>
+        <th scope="col">H7</th>
+        <th scope="col">H8</th>
+        <th scope="col">H9</th>
+        <th scope="col">H10</th>
+        <th scope="col">H11</th>
+        <th scope="col">H12</th>
+        <th scope="col">Total</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in hover %}
+      <tr>
+        <th scope="row">{{i.line}}</th>
+        <td>2</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>2</td>
+        <td>2</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+
+
+{% endblock content %}

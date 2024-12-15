@@ -1,0 +1,53 @@
+{% extends 'pro/base.html' %}
+
+{% block content %}
+
+
+
+  
+
+    {% for i in hover %}
+    <div class="col-md-4 col-sm-12 my-2 d-grid gap-2">
+        <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collap-{{i.id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+            {{i.style_name}}
+          </a>
+        <div class="collapse" id="collap-{{i.id}}">
+            <div class="card card-body">
+            <label for="h1">H1</label>
+            <input type="number" name="h1" id="h1" class="form-control-sm">
+            <label for="h2">H2</label>
+            <input type="number" name="h2" id="h2" class="form-control-sm">
+            <label for="h3">H3</label>
+            <input type="number" name="h3" class="form-control-sm">
+
+            <label for="h3">H3</label>
+            <input type="number" name="h3" class="form-control-sm">
+            <label for="h3">H3</label>
+            <input type="number" name="h3" class="form-control-sm">
+            <label for="h3">H3</label>
+            <input type="number" name="h3" class="form-control-sm">
+            <label for="h3">H3</label>
+            <input type="number" name="h3" class="form-control-sm">
+            <label for="h3">H3</label>
+            <input type="number" name="h3" class="form-control-sm">
+            <label for="h3">H3</label>
+            <input type="number" name="h3" class="form-control-sm">
+            <label for="h3">H3</label>
+            <input type="number" name="h3" class="form-control-sm">
+            <label for="h3">H3</label>
+            <input type="number" name="h3" class="form-control-sm">
+            <label for="h3">H3</label>
+            <input type="number" name="h3" class="form-control-sm">
+            
+            </div>
+        </div>
+    </div> 
+    {% endfor %} 
+    
+    <div class="col-md-4 col-sm-12 my-2 d-grid gap-2">
+        <a href="#" class="btn btn-success">Update & Save</a>
+    </div>
+
+
+
+{% endblock content %}

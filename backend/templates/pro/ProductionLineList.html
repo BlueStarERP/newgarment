@@ -50,15 +50,16 @@
         <td>
           <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{i.target}}</a>
           <ul class="dropdown-menu">
-  <li class="p-2"><input type="number" name="" class="form-control" value="1"></li>
+  <li class="p-2"><input type="number" name="" class="form-control" value="{{i.target}}"></li>
   <li class="p-2 justify-content-center d-flex"><button type="button" class="btn btn-sm btn-info">update</button></li>
 </ul>
 </td>
         <td>
-            <a href="#" class="btn btn-sm btn-success">Attendance</a>
+            <a href="#" class="btn btn-sm btn-success">Assign</a>
         </td>
         <td>
-            <a href="#" class="btn btn-sm btn-secondary">view</a>
+            <a href="{% url 'production:SewingOperatorGroup' i.id %}" class="btn btn-sm btn-secondary">SewingOptGruop</a>
+            <a href="{% url 'production:SewingOptCMP' i.id %}" class="btn btn-sm btn-info">dailyCMP</a>
         </td>
       </tr>
       {% endfor %}
