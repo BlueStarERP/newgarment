@@ -1,1 +1,30 @@
-<h1>yy</h1>
+<script>
+    console.log('Ajax...')
+    // $("input[name=nameGoesHere]").val();
+    //start update line target
+$("#sewingEmpTbl").on('click', '.addEmpGroup', function() {
+   var currenttr = $(this).closest(".sewingEmpTr");
+   var lid = currenttr.find(".lid").html();
+   var ltarget = currenttr.find("input").val();
+  // console.log(lid,ltarget)
+   $.ajax({
+    url: "",
+    method: "GET",
+    data:{lid:lid, ltarget:ltarget},
+    success: function(data){
+
+        window.setTimeout(function(){ } ,2000);
+                        location.reload();
+
+        // window.location.href = '/admin/';
+        // window.open('https://www.codexworld.com', '_blank');
+    },
+    error:function(){
+        alert('having some error contact to developer');
+    },
+                    
+  });//end ajax
+
+
+});//end update line target
+</script>

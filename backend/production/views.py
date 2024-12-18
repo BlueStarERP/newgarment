@@ -132,7 +132,7 @@ class SewingOperatorGroup(View):
         line_obj = LineName.objects.get(id=id)
         emp = employee_profile.objects.all()
         opt = SewingOperatorGroupModal.objects.filter(line=line_obj)
-        context = {'title':'SewingOperatorGroup', 'opt':opt, 'emp':emp}
+        context = {'title':'SewingOperatorGroup', 'opt':opt, 'emp':emp, 'lid':id}
         return render(request, "pro/SewingOperatorGroup.html", context)
 
 
