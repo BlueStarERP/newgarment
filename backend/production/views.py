@@ -118,6 +118,7 @@ class EntryLineHandover(View):
 #         line = LineName.objects.all()
 #         context = {'title':'OperatorCMPLine', 'line':line}
 #         return render(request, "pro/OperatorCMPLine.html", context)
+# abc
 
 class SewingOptCMP(View):
     def get(self, request,id):
